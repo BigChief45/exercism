@@ -14,11 +14,10 @@ class Sieve
     marks = []
 
     (2..Math.sqrt(@limit)).each do |p|
-      (p**2..@limit).step(p) { |i| marks << i }
+      (p**2..@limit).step(p) { |i| marks << i } unless marks.include?(p)
     end
 
     return (2..@limit).to_a - marks
-
   end
 
 end
