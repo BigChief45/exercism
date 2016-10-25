@@ -2,18 +2,23 @@ class Sieve
 
   def initialize(limit)
     @limit = limit
-    @range= (2..limit)
   end
 
   def primes
+    @primes ||= generate_primes
+  end
+
+  private
+
+  def generate_primes
     marks = []
 
-    @range.each do |p|
-      next if marks.include?(p)
-      @range.each { |i| marks << i * p }
+    (2..Math.sqrt(@limit)).each do |p|
+      (p**2..@limit).step(p) { |i| marks << i }
     end
 
-    return @range.to_a - marks
+    return (2..@limit).to_a - marks
+
   end
 
 end
