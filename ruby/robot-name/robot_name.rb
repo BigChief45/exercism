@@ -2,8 +2,8 @@ class Robot
 
   attr_reader :name
 
-  def initialize
-    @random = Random.new
+  def initialize(seed=Random.new_seed)
+    @random = Random.new(seed)
     @name = generate_name
   end
 
@@ -14,7 +14,15 @@ class Robot
   private
 
   def generate_name
-    (0..1).map { (65 + @random.rand(26)).chr }.join << (@random.rand(0..999).to_s)
+    generate_chars << generate_numbers
+  end
+
+  def generate_chars
+    ('A'..'Z').to_a.sample(2).join
+  end
+
+  def generate_numbers
+    @random.rand(100..999).to_s
   end
 
 end
