@@ -15,10 +15,10 @@ class Sieve
     marks[0], marks[1] = true
 
     (2..Math.sqrt(@limit)).each do |p|
-      (p**2..@limit).step(p) { |i| marks[i] = true } unless marks[p] == true
+      (p**2..@limit).step(p) { |i| marks[i] = true } unless marks[p]
     end
 
-    return marks.each_index.select { |i| marks[i] == false }
+    marks.each_index.select { |i| marks[i] == false }
   end
 
 end
