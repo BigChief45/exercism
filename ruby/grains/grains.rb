@@ -1,12 +1,15 @@
 module Grains
-  def self.square(n)
-    raise ArgumentError if n <= 0 || n > 64
 
-    2**(n-1)
+  CHESSBOARD = (1..64)
+
+  def self.square(square_number)
+    raise ArgumentError, 'The input must be a number between 1 and 64' unless CHESSBOARD.include?(square_number)
+
+    2**(square_number-1)
   end
 
   def self.total
-    (1..64).inject { |sum, i| sum + square(i) }
+    CHESSBOARD.inject { |sum, i| sum + square(i) }
   end
 end
 
