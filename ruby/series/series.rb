@@ -6,10 +6,6 @@ class Series
   def slices(length)
     raise ArgumentError, 'Incorrect input' if length > @digits.length
 
-    result = []
-
-    @digits.split('').each_cons(length) { |i| result << i.join }
-
-    result
+    @digits.chars.each_cons(length).map(&:join)
   end
 end

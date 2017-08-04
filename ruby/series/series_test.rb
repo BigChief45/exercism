@@ -19,7 +19,6 @@ class SeriesTest < Minitest::Test
   end
 
   def test_other_slices_of_two
-    skip
     series = Series.new('98273463')
     expected = ['98', '82', '27', '73', '34', '46', '63']
     assert_equal expected, series.slices(2)
