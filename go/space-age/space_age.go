@@ -1,9 +1,11 @@
 package space
 
-func Age(seconds float64, planet string) float64 {
+type Planet string
+
+func Age(seconds float64, planet Planet) float64 {
 	earthYears := seconds / 60 / 60 / 24 / float64(365.25)
 
-	agesInPlanets := map[string]float64{
+	agesInPlanets := map[Planet]float64{
 		"Earth":   earthYears,
 		"Mercury": earthYears / 0.2408467,
 		"Venus":   earthYears / 0.61519726,
