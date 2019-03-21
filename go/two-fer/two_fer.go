@@ -3,13 +3,9 @@ package twofer
 import "fmt"
 
 func ShareWith(name string) string {
-	with := ""
-
-	if len(name) == 0 {
-		with = "you"
-	} else {
-		with = name
+	if name == "" {
+		name = "you"
 	}
 
-	return fmt.Sprintf("One for %s, one for me.", with)
+	return fmt.Sprintf("One for %s, one for me.", name)
 }
